@@ -1,0 +1,810 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Saathi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="logo-placeholder">KS</div>
+            <div class="brand-text">
+                <h1 data-i18n="appName">Kisan Saathi</h1>
+                <p class="tagline" data-i18n="tagline">Smart Farming & Post-Harvest Assistant</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#dashboard" data-i18n="navDashboard">Dashboard</a></li>
+                <li><a href="#login" data-i18n="navLogin" id="nav-login-link">Login</a></li>
+                <li style="margin-left: 1rem;">
+                    <select id="language-selector" class="lang-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="or">ଓଡ଼ିଆ</option>
+                        <option value="te">తెలుగు</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="bn">বাংলা</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="app">
+        <section class="hero-section">
+            <h2 data-i18n="heroWelcome">Welcome to Kisan Saathi</h2>
+
+            <div class="multilingual-taglines">
+                <p class="lang-text" lang="hi"><strong>हिन्दी:</strong> स्मार्ट कृषि और फसल-पश्चात सहायक</p>
+                <p class="lang-text" lang="or"><strong>ଓଡ଼ିଆ:</strong> ସ୍ମାର୍ଟ କୃଷି ଏବଂ ଅମଳ ପରବର୍ତ୍ତୀ ସହାୟକ</p>
+                <p class="lang-text" lang="te"><strong>తెలుగు:</strong> స్మార్ట్ వ్యవసాయం మరియు కోత అనంతర సహాయకుడు</p>
+                <p class="lang-text" lang="ta"><strong>தமிழ்:</strong> ஸ்மார்ட் விவசாயம் மற்றும் அறுவடைக்கு பிந்தைய
+                    உதவியாளர்</p>
+                <p class="lang-text" lang="bn"><strong>বাংলা:</strong> স্মার্ট কৃষি এবং ফসল পরবর্তী সহকারী</p>
+            </div>
+
+            <div class="auth-forms" id="login-container">
+                <div class="dash-card" style="max-width: 400px; margin: 0 auto;">
+                    <h3 id="auth-title" data-i18n="authLoginTitle">Login</h3>
+                    <form id="auth-form" class="analysis-form">
+                        <div class="form-group" id="name-group" style="display: none;">
+                            <label for="auth-name" data-i18n="lblName">Full Name</label>
+                            <input type="text" id="auth-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="auth-email" data-i18n="lblEmail">Email</label>
+                            <input type="email" id="auth-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="auth-password" data-i18n="lblPassword">Password</label>
+                            <input type="password" id="auth-password" required>
+                        </div>
+                        <button type="submit" class="action-btn" id="auth-submit" data-i18n="btnLogin">Log In</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+                        <a href="#" id="toggle-auth-mode" style="color: var(--primary-color);"
+                            data-i18n="linkNeedAccount">Need an account? Register here</a>
+                    </p>
+                </div>
+            </div>
+
+            <div id="dashboard-container" style="display: none;">
+                <div class="dashboard-grid">
+                    <!-- Weather Card -->
+                    <div class="dash-card weather-card">
+                        <h3 data-i18n="cardWeather">🌤️ Weather</h3>
+                        <div id="weather-summary" data-i18n="weatherLoading">Loading weather...</div>
+                    </div>
+
+                    <div class="dash-card actions-card">
+                        <h3 data-i18n="cardActions">⚡ Quick Actions</h3>
+                        <button class="action-btn" data-target="leaf-scan-section" data-i18n="btnScanLeaf">Scan
+                            Leaf</button>
+                        <button class="action-btn" data-target="post-harvest-section"
+                            data-i18n="btnPostHarvest">Post-Harvest Analysis</button>
+                        <button class="action-btn" data-target="chatbot-section" data-i18n="btnChatbot">Chat with
+                            Assistant</button>
+                        <button class="action-btn" data-target="budget-section" data-i18n="budgetTitle"
+                            style="margin-top: 0.5rem; background-color: #2b6cb0;">💰 Budget-Based Farm Planner</button>
+                        <button class="action-btn" data-target="yield-section" data-i18n="yieldTitle"
+                            style="margin-top: 0.5rem; background-color: #2c7a7b;">📈 Yield Estimation</button>
+                        <button class="action-btn" data-target="fertilizer-section" data-i18n="fertTitle"
+                            style="margin-top: 0.5rem; background-color: #319795;">🌱 Fertilizer Recommendation</button>
+                        <button class="action-btn" data-target="disease-section" data-i18n="diseaseTitle"
+                            style="margin-top: 0.5rem; background-color: #dd6b20;">🦠 Disease Advisory</button>
+                        <button class="action-btn" data-target="crop-recommend-section" data-i18n="crTitle"
+                            style="margin-top: 0.5rem; background-color: #2f855a;">🌾 Crop Recommendation
+                            Engine</button>
+                        <button class="action-btn" data-target="market-price-section" data-i18n="mktTitle"
+                            style="margin-top: 0.5rem; background-color: #3182ce;">📊 Market Price Intelligence</button>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="dash-card activity-card">
+                        <h3 data-i18n="cardActivity">📋 Recent Activity</h3>
+                        <ul id="activity-list">
+                            <li data-i18n="emptyActivity">No recent activity to show.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Simple Education Module -->
+                <div class="feature-section" id="education-section" style="margin-top: 2rem;">
+                    <div class="dash-card">
+                        <h3 data-i18n="eduTitle">📖 How to Calculate</h3>
+                        <p data-i18n="eduDesc">Simple guide to understand what crops need.</p>
+
+                        <div class="edu-grid"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                            <div class="edu-card"
+                                style="background-color: #e6fffa; border-left: 4px solid #38b2ac; padding: 1rem; border-radius: 4px;">
+                                <h4 style="color: #2c7a7b; margin-bottom: 0.5rem;" data-i18n="eduWhatIsN">What is
+                                    Nitrogen (N)?</h4>
+                                <p data-i18n="eduNAns">Nitrogen helps leaves grow green and healthy.</p>
+                            </div>
+                            <div class="edu-card"
+                                style="background-color: #ebf8ff; border-left: 4px solid #4299e1; padding: 1rem; border-radius: 4px;">
+                                <h4 style="color: #2b6cb0; margin-bottom: 0.5rem;" data-i18n="eduWhatIsP">What is
+                                    Phosphorus (P)?</h4>
+                                <p data-i18n="eduPAns">Helps root growth.</p>
+                            </div>
+                            <div class="edu-card"
+                                style="background-color: #fefcbf; border-left: 4px solid #ecc94b; padding: 1rem; border-radius: 4px;">
+                                <h4 style="color: #b7791f; margin-bottom: 0.5rem;" data-i18n="eduWhatIsK">What is
+                                    Potassium (K)?</h4>
+                                <p data-i18n="eduKAns">Helps plant fight disease.</p>
+                            </div>
+                        </div>
+
+                        <div class="example-box"
+                            style="margin-top: 1.5rem; background-color: #f7fafc; padding: 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #4a5568;" data-i18n="eduExTitle">Example Calculation:</h4>
+                            <p style="margin-top: 0.5rem; font-size: 1.1rem; color: #2d3748;" data-i18n="eduExText">
+                                If 1
+                                acre needs 50 kg fertilizer and 1 bag = 45 kg, You need approximately 2 bags.</p>
+                        </div>
+
+                        <button class="action-btn" style="margin-top: 1.5rem;" data-i18n="eduBtnCalc">Calculate for
+                            my
+                            farm</button>
+                    </div>
+                </div>
+
+                <!-- Budget-Based Farm Planner Section -->
+                <div class="feature-section" id="budget-section" style="margin-top: 2rem;">
+                    <div class="dash-card">
+                        <h3 data-i18n="budgetTitle">💰 Budget-Based Farm Planner</h3>
+                        <p data-i18n="budgetDesc">Plan your farming expenses based on your available budget.</p>
+
+                        <form class="analysis-form" id="budget-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="budget-total" data-i18n="lblBudget">Total Budget (₹)</label>
+                                    <input type="number" id="budget-total" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget-land" data-i18n="lblLandSizeBudget">Land Size (Acres)</label>
+                                    <input type="number" id="budget-land" step="0.1" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget-crop" data-i18n="lblCropBudget">Crop Type</label>
+                                <select id="budget-crop" required>
+                                    <option value="wheat" data-i18n="optWheat">Wheat</option>
+                                    <option value="rice" data-i18n="optRice">Rice</option>
+                                    <option value="tomato" data-i18n="optTomato">Tomato</option>
+                                    <option value="potato" data-i18n="optPotato">Potato</option>
+                                    <option value="onion" data-i18n="optOnion">Onion</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="action-btn" style="margin-top: 1rem;"
+                                data-i18n="btnCalculateBudget">Calculate Farm Plan</button>
+                        </form>
+
+                        <!-- Budget Results Div -->
+                        <div id="budget-result" class="prediction-box" style="display: none; margin-top: 1.5rem;">
+                            <h4 data-i18n="resBudgetBreakdown">Expense Breakdown</h4>
+                            <div class="result-grid"
+                                style="grid-template-columns: repeat(2, 1fr); margin-bottom: 1rem;">
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblLabour">Labour:</span>
+                                    <span class="value" id="res-labour">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblMachine">Machine:</span>
+                                    <span class="value" id="res-machine">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblDiesel">Diesel:</span>
+                                    <span class="value" id="res-diesel">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblSeed">Seed:</span>
+                                    <span class="value" id="res-seed">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblFertilizer">Fertilizer:</span>
+                                    <span class="value" id="res-fertilizer">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblPesticide">Pesticide:</span>
+                                    <span class="value" id="res-pesticide">--</span>
+                                </div>
+                            </div>
+                            <div class="advice-box">
+                                <p id="budget-advice-message" style="font-weight: 500;">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yield Estimation Section -->
+                <div class="feature-section" id="yield-section" style="margin-top: 2rem;">
+                    <div class="dash-card">
+                        <h3 data-i18n="yieldTitle">📈 Yield Estimation</h3>
+                        <p data-i18n="yieldDesc">Estimate expected crop yield and revenue based on conditions.</p>
+
+                        <form class="analysis-form" id="yield-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="yield-crop" data-i18n="lblYieldCrop">Crop Name</label>
+                                    <select id="yield-crop" required>
+                                        <option value="wheat" data-i18n="optWheat">Wheat</option>
+                                        <option value="rice" data-i18n="optRice">Rice</option>
+                                        <option value="tomato" data-i18n="optTomato">Tomato</option>
+                                        <option value="potato" data-i18n="optPotato">Potato</option>
+                                        <option value="onion" data-i18n="optOnion">Onion</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="yield-land" data-i18n="lblYieldLand">Land Size (Acres)</label>
+                                    <input type="number" id="yield-land" step="0.1" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="yield-soil" data-i18n="lblYieldSoil">Soil Quality</label>
+                                    <select id="yield-soil" required>
+                                        <option value="good" data-i18n="optGood">Good</option>
+                                        <option value="medium" data-i18n="optMedium">Medium</option>
+                                        <option value="poor" data-i18n="optPoor">Poor</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="yield-irrigation" data-i18n="lblYieldIrrigation">Irrigation
+                                        Available?</label>
+                                    <select id="yield-irrigation" required>
+                                        <option value="true" data-i18n="optYes">Yes</option>
+                                        <option value="false" data-i18n="optNo">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="yield-rainfall" data-i18n="lblYieldRainfall">Rainfall Level</label>
+                                    <select id="yield-rainfall" required>
+                                        <option value="high" data-i18n="optHigh">High</option>
+                                        <option value="normal" data-i18n="optNormal">Normal</option>
+                                        <option value="low" data-i18n="optLow">Low</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="action-btn" style="margin-top: 1rem;"
+                                data-i18n="btnEstimateYield">Estimate Yield</button>
+                        </form>
+
+                        <!-- Yield Results Div -->
+                        <div id="yield-result" class="prediction-box" style="display: none; margin-top: 1.5rem;">
+                            <h4 data-i18n="resYieldPred">Yield Estimation Results</h4>
+                            <div class="result-grid">
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblExpYield">Expected Yield:</span>
+                                    <span class="value"><span id="res-yield">--</span> <span
+                                            data-i18n="valQuintals">Quintals</span></span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="label" data-i18n="lblExpRevenue">Expected Revenue:</span>
+                                    <span class="value" id="res-revenue">--</span>
+                                </div>
+                            </div>
+                            <div class="advice-box">
+                                <p id="yield-advice-message" style="font-weight: 500; color: #2b6cb0;">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fertilizer Recommendation Section -->
+                <div class="feature-section" id="fertilizer-section" style="margin-top: 2rem;">
+                    <div class="dash-card">
+                        <h3 data-i18n="fertTitle">🌱 Fertilizer Recommendation</h3>
+                        <p data-i18n="fertDesc">Get specific fertilizer advice based on NPK values or visual
+                            symptoms.</p>
+
+                        <form class="analysis-form" id="fertilizer-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fert-mode" data-i18n="lblFertMode">Input Method</label>
+                                    <select id="fert-mode" required onchange="toggleFertilizerMode()">
+                                        <option value="npk" data-i18n="optNPK">Enter Soil Test (NPK) Values</option>
+                                        <option value="symptoms" data-i18n="optSymptoms">Select Plant Symptoms
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fert-land" data-i18n="lblFertLand">Land Size (Acres)</label>
+                                    <input type="number" id="fert-land" step="0.1" required>
+                                </div>
+                            </div>
+
+                            <!-- NPK Input Mode -->
+                            <div id="fert-npk-inputs" class="form-row">
+                                <div class="form-group">
+                                    <label for="fert-n" data-i18n="lblNValue">Nitrogen (N) Value</label>
+                                    <input type="number" id="fert-n" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fert-p" data-i18n="lblPValue">Phosphorus (P) Value</label>
+                                    <input type="number" id="fert-p" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fert-k" data-i18n="lblKValue">Potassium (K) Value</label>
+                                    <input type="number" id="fert-k" step="0.1">
+                                </div>
+                            </div>
+
+                            <!-- Symptoms Select Mode -->
+                            <div id="fert-symptoms-inputs" class="form-group"
+                                style="display: none; background-color: #f7fafc; padding: 1rem; border-radius: 4px;">
+                                <label data-i18n="lblSymptoms">Select Symptoms</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem;"
+                                    id="fert-checkboxes">
+                                    <label><input type="checkbox" value="yellow_leaves"> <span
+                                            data-i18n="optYellowLeaves">Yellowing of leaves</span></label>
+                                    <label><input type="checkbox" value="weak_roots"> <span
+                                            data-i18n="optWeakRoots">Weak or poor root growth</span></label>
+                                    <label><input type="checkbox" value="brown_edges"> <span
+                                            data-i18n="optBrownEdges">Brown or scorched leaf edges</span></label>
+                                    <label><input type="checkbox" value="stunted_growth"> <span
+                                            data-i18n="optStuntedGrowth">Stunted or slow growth</span></label>
+                                    <label><input type="checkbox" value="purple_leaves"> <span
+                                            data-i18n="optPurpleLeaves">Purplish tint on older leaves</span></label>
+                                    <label><input type="checkbox" value="curling_leaves"> <span
+                                            data-i18n="optCurlingLeaves">Curling of leaves</span></label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="action-btn" style="margin-top: 1rem;"
+                                data-i18n="btnRecommendFert">Get Recommendation</button>
+                        </form>
+
+                        <script>
+                            function toggleFertilizerMode() {
+                                const mode = document.getElementById('fert-mode').value;
+                                const npkInputs = document.getElementById('fert-npk-inputs');
+                                const symInputs = document.getElementById('fert-symptoms-inputs');
+
+                                if (mode === 'npk') {
+                                    npkInputs.style.display = 'flex';
+                                    symInputs.style.display = 'none';
+                                } else {
+                                    npkInputs.style.display = 'none';
+                                    symInputs.style.display = 'block';
+                                }
+                            }
+                        </script>
+
+                        <!-- Fertilizer Results Div -->
+                        <div id="fert-result" class="prediction-box" style="display: none; margin-top: 1.5rem;">
+                            <h4 data-i18n="resFertTitle">Fertilizer Advisory</h4>
+                            <div class="result-grid" style="grid-template-columns: 1fr; gap: 0.5rem;">
+                                <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                    <span class="label" data-i18n="lblDeficiency">Detected Deficiency:</span>
+                                    <span class="value" id="res-fert-deficiency" style="color: #c53030;">--</span>
+                                </div>
+                                <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                    <span class="label" data-i18n="lblRecFert">Recommended Fertilizer:</span>
+                                    <span class="value" id="res-fert-name" style="color: #276749;">--</span>
+                                </div>
+                                <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                    <span class="label" data-i18n="lblRecQuantity">Required Quantity (Per
+                                        Acre):</span>
+                                    <span class="value"><span id="res-fert-qty">--</span> kg</span>
+                                </div>
+                                <div class="result-item"
+                                    style="justify-content: flex-start; gap: 1rem; border-top: 1px dashed #cbd5e0; padding-top: 0.5rem; margin-top: 0.5rem;">
+                                    <span class="label" data-i18n="lblTotalQuantity">Total Required Quantity:</span>
+                                    <span class="value" style="font-weight: bold; font-size: 1.1rem;"><span
+                                            id="res-fert-total">--</span> kg</span>
+                                </div>
+                            </div>
+                            <div class="advice-box"
+                                style="margin-top: 1rem; background-color: #ebf8ff; border: 1px solid #bee3f8;">
+                                <p id="fert-advice-message" style="font-weight: 500; color: #2c5282;">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Disease Advisory Section (Non-Image) -->
+                <div class="feature-section" id="disease-section" style="margin-top: 2rem;">
+                    <div class="dash-card">
+                        <h3 data-i18n="diseaseTitle">🦠 Disease Advisory (Non-Image)</h3>
+                        <p data-i18n="diseaseDesc">Select currently observed symptoms to identify possible diseases
+                            and get treatment advice.</p>
+
+                        <form class="analysis-form" id="disease-form">
+                            <div class="form-group"
+                                style="background-color: #fffaf0; padding: 1rem; border-radius: 4px; border: 1px solid #feebc8;">
+                                <label data-i18n="lblDisSymptoms"
+                                    style="color: #c05621; font-weight: bold; margin-bottom: 0.5rem; display: block;">Select
+                                    Symptoms</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.5rem;"
+                                    id="disease-checkboxes">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input
+                                            type="checkbox" value="white_powdery"> <span
+                                            data-i18n="optWhitePowdery">White powdery spots on
+                                            leaves/stems</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input
+                                            type="checkbox" value="wilting_leaves"> <span data-i18n="optWilting">Wilting
+                                            or yellowing of leaves</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input
+                                            type="checkbox" value="webs_on_leaves"> <span data-i18n="optWebs">Fine
+                                            webs on leaves</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input
+                                            type="checkbox" value="holes_in_leaves"> <span data-i18n="optHoles">Holes in
+                                            leaves</span></label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem;"><input
+                                            type="checkbox" value="yellow_mosaic"> <span
+                                            data-i18n="optYellowMosaic">Yellow mosaic pattern on
+                                            leaves</span></label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="action-btn"
+                                style="margin-top: 1rem; background-color: #dd6b20;" data-i18n="btnAdviseDisease">Get
+                                Disease Advisory</button>
+                        </form>
+
+                        <!-- Disease Results Div -->
+                        <div id="disease-result" class="prediction-box"
+                            style="display: none; margin-top: 1.5rem; border-left: 4px solid #dd6b20;">
+                            <h4 data-i18n="resDisTitle" style="color: #dd6b20;">Disease Advisory Results</h4>
+                            <div class="result-grid" style="grid-template-columns: 1fr; gap: 0.8rem;">
+                                <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                    <span class="label" data-i18n="lblPossibleIssue" style="color: #7b341e;">Possible
+                                        Issue:</span>
+                                    <span class="value" id="res-dis-issue"
+                                        style="color: #c53030; font-weight: bold;">--</span>
+                                </div>
+                                <div class="result-item"
+                                    style="justify-content: flex-start; gap: 1rem; align-items: flex-start;">
+                                    <span class="label" data-i18n="lblTreatment"
+                                        style="color: #276749; min-width: 180px;">Recommended Treatment:</span>
+                                    <span class="value" id="res-dis-treatment" style="text-align: left;">--</span>
+                                </div>
+                                <div class="result-item"
+                                    style="justify-content: flex-start; gap: 1rem; align-items: flex-start;">
+                                    <span class="label" data-i18n="lblPrevention"
+                                        style="color: #2b6cb0; min-width: 180px;">Prevention Method:</span>
+                                    <span class="value" id="res-dis-prevention" style="text-align: left;">--</span>
+                                </div>
+                                <div class="result-item"
+                                    style="justify-content: flex-start; gap: 1rem; border-top: 1px dashed #cbd5e0; padding-top: 0.5rem;">
+                                    <span class="label" data-i18n="lblCostEst">Estimated Treatment Cost:</span>
+                                    <span class="value" style="font-weight: bold;">₹<span
+                                            id="res-dis-cost">--</span></span>
+                                </div>
+                            </div>
+                            <div class="advice-box"
+                                style="margin-top: 1rem; background-color: #fffaf0; border: 1px solid #feebc8;">
+                                <p id="disease-advice-message" style="font-weight: 500; color: #9c4221;">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crop Recommendation Engine Section -->
+            <div class="feature-section" id="crop-recommend-section" style="margin-top: 2rem;">
+                <div class="dash-card">
+                    <h3 data-i18n="crTitle">🌾 Crop Recommendation Engine</h3>
+                    <p data-i18n="crDesc">Discover the most profitable crop to grow based on your field conditions
+                        in simple terms.</p>
+
+                    <form class="analysis-form" id="crop-recommend-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cr-land" data-i18n="lblCrLand">Land Size (Acres)</label>
+                                <input type="number" id="cr-land" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cr-soil" data-i18n="lblCrSoil">Soil Type</label>
+                                <select id="cr-soil" required>
+                                    <option value="red" data-i18n="optCrRed">Red Soil</option>
+                                    <option value="black" data-i18n="optCrBlack">Black Soil</option>
+                                    <option value="sandy" data-i18n="optCrSandy">Sandy Soil</option>
+                                    <option value="clay" data-i18n="optCrClay">Clay Soil</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cr-season" data-i18n="lblCrSeason">Season</label>
+                                <select id="cr-season" required>
+                                    <option value="kharif" data-i18n="optCrKharif">Kharif (Monsoon)</option>
+                                    <option value="rabi" data-i18n="optCrRabi">Rabi (Winter)</option>
+                                    <option value="zaid" data-i18n="optCrZaid">Zaid (Summer)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cr-water" data-i18n="lblCrWater">Water Availability</label>
+                                <select id="cr-water" required>
+                                    <option value="high" data-i18n="optHigh">High</option>
+                                    <option value="medium" data-i18n="optMedium">Medium</option>
+                                    <option value="low" data-i18n="optLow">Low</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="action-btn" style="margin-top: 1rem; background-color: #2f855a;"
+                            data-i18n="btnRecommendCrop">Find
+                            Best Crops</button>
+                    </form>
+
+                    <!-- Crop Recommendation Results Div -->
+                    <div id="crop-recommend-result" class="prediction-box"
+                        style="display: none; margin-top: 1.5rem; border-left: 4px solid #2f855a;">
+                        <h4 data-i18n="resCrTitle" style="color: #22543d; margin-bottom: 1rem;">Top Recommended
+                            Crops</h4>
+
+                        <div class="advice-box"
+                            style="margin-bottom: 1rem; background-color: #f0fff4; border: 1px solid #c6f6d5;">
+                            <p id="cr-advice-main" style="font-weight: 500; color: #276749;">--</p>
+                        </div>
+
+                        <div id="cr-predictions-container" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- Dynamic rows will inject here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Price Intelligence Section -->
+            <div class="feature-section" id="market-price-section" style="margin-top: 2rem;">
+                <div class="dash-card">
+                    <h3 data-i18n="mktTitle">📊 Market Price Intelligence</h3>
+                    <p data-i18n="mktDesc">Check current average market prices to decide where to sell your harvest.
+                    </p>
+
+                    <form class="analysis-form" id="market-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mkt-crop" data-i18n="lblMktCrop">Select Crop</label>
+                                <select id="mkt-crop" required>
+                                    <option value="wheat" data-i18n="optWheat">Wheat</option>
+                                    <option value="rice" data-i18n="optRice">Rice</option>
+                                    <option value="tomato" data-i18n="optTomato">Tomato</option>
+                                    <option value="potato" data-i18n="optPotato">Potato</option>
+                                    <option value="onion" data-i18n="optOnion">Onion</option>
+                                    <option value="millets" data-i18n="optMillets">Millets</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mkt-qty" data-i18n="lblMktQty">Harvest Quantity (Quintals)</label>
+                                <input type="number" id="mkt-qty" step="0.1" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="action-btn" style="margin-top: 1rem; background-color: #3182ce;"
+                            data-i18n="btnCheckMarket">Check
+                            Prices</button>
+                    </form>
+
+                    <!-- Market Results Div -->
+                    <div id="market-result" class="prediction-box"
+                        style="display: none; margin-top: 1.5rem; border-left: 4px solid #3182ce;">
+                        <h4 data-i18n="resMktTitle" style="color: #2b6cb0; margin-bottom: 1rem;">Market Price
+                            Estimates</h4>
+
+                        <div class="result-grid" style="grid-template-columns: 1fr; gap: 0.8rem;">
+                            <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                <span class="label" data-i18n="lblMktLocal"
+                                    style="color: #718096; min-width: 250px;">Local Mandi (Village level):</span>
+                                <span class="value">₹<span id="res-mkt-local">--</span> / qtl</span>
+                            </div>
+                            <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                <span class="label" data-i18n="lblMktDist"
+                                    style="color: #4a5568; min-width: 250px;">District Market:</span>
+                                <span class="value">₹<span id="res-mkt-dist">--</span> / qtl</span>
+                            </div>
+                            <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                <span class="label" data-i18n="lblMktState"
+                                    style="color: #2d3748; font-weight: bold; min-width: 250px;">State/Wholesale
+                                    Market:</span>
+                                <span class="value" style="color: #2b6cb0; font-weight: bold;">₹<span
+                                        id="res-mkt-state">--</span> / qtl</span>
+                            </div>
+                            <div class="result-item"
+                                style="justify-content: flex-start; gap: 1rem; border-top: 1px dashed #cbd5e0; padding-top: 0.5rem;">
+                                <span class="label" data-i18n="lblMktDemand"
+                                    style="color: #e53e3e; min-width: 250px;">Current Demand:</span>
+                                <span class="value" id="res-mkt-demand"
+                                    style="color: #c53030; font-weight: bold;">--</span>
+                            </div>
+                            <div class="result-item"
+                                style="justify-content: flex-start; gap: 1rem; border-top: 1px dashed #cbd5e0; padding-top: 0.5rem; margin-top: 0.5rem; background-color: #ebf8ff; padding: 1rem; border-radius: 4px;">
+                                <span class="label" data-i18n="lblMktTotalVal"
+                                    style="color: #2c5282; font-size: 1.1rem;">Total Estimated Value (Best
+                                    Market):</span>
+                                <span class="value" style="color: #2b6cb0; font-weight: bold; font-size: 1.3rem;">₹<span
+                                        id="res-mkt-total">--</span></span>
+                            </div>
+                        </div>
+
+                        <div class="advice-box"
+                            style="margin-top: 1.5rem; background-color: #e6fffa; border: 1px solid #b2f5ea;">
+                            <p id="mkt-advice-message" style="font-weight: 500; color: #234e52; margin-bottom: 0.5rem;">
+                                --</p>
+                            <p id="mkt-transport-advice" style="font-size: 0.95rem; color: #285e61;">--</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-Harvest Form Section -->
+            <div class="feature-section" id="post-harvest-section" style="margin-top: 2rem;">
+                <div class="dash-card">
+                    <h3 data-i18n="phTitle">🌾 Post-Harvest Intelligence</h3>
+                    <p data-i18n="phDesc">Analyze storage conditions to predict spoilage risk and minimize
+                        losses.
+                    </p>
+
+                    <form class="analysis-form" id="post-harvest-form">
+                        <div class="form-group">
+                            <label for="crop-type" data-i18n="lblCropType">Crop Type</label>
+                            <select id="crop-type" required>
+                                <option value="tomato" data-i18n="optTomato">Tomato</option>
+                                <option value="potato" data-i18n="optPotato">Potato</option>
+                                <option value="onion" data-i18n="optOnion">Onion</option>
+                                <option value="wheat" data-i18n="optWheat">Wheat</option>
+                                <option value="rice" data-i18n="optRice">Rice</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="temperature" data-i18n="lblTemp">Temperature (°C)</label>
+                                <input type="number" id="temperature" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="humidity" data-i18n="lblHumidity">Humidity (%)</label>
+                                <input type="number" id="humidity" step="0.1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="duration" data-i18n="lblStorageDuration">Storage Duration (Days)</label>
+                                <input type="number" id="duration" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="method" data-i18n="lblMethod">Storage Method</label>
+                                <select id="method" required>
+                                    <option value="cold_storage" data-i18n="optCold">Cold Storage</option>
+                                    <option value="warehouse" data-i18n="optWarehouse">Standard Warehouse
+                                    </option>
+                                    <option value="open" data-i18n="optOpen">Open Air</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="action-btn" style="margin-top: 1rem; background-color: #d69e2e;"
+                            data-i18n="btnAnalyzeStorage">Analyze Storage Risk</button>
+                    </form>
+
+                    <!-- Results Div -->
+                    <div id="prediction-result" class="prediction-box"
+                        style="display: none; margin-top: 1.5rem; border-left: 4px solid #d69e2e;">
+                        <h4 data-i18n="resPhTitle" style="color: #b7791f; margin-bottom: 1rem;">Storage Risk Results
+                        </h4>
+                        <div class="result-grid" style="grid-template-columns: 1fr; gap: 0.8rem;">
+                            <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                <span class="label" data-i18n="lblSpoilageRisk" style="min-width: 250px;">Spoilage
+                                    Risk (0-1):</span>
+                                <span class="value" id="risk-score" style="font-weight: bold;">--</span>
+                            </div>
+                            <div class="result-item" style="justify-content: flex-start; gap: 1rem;">
+                                <span class="label" data-i18n="lblLossEst" style="min-width: 250px;">Estimated
+                                    Potential Loss:</span>
+                                <span class="value" id="loss-pct" style="color: #c53030; font-weight: bold;">--</span>
+                            </div>
+                        </div>
+                        <div class="advice-box"
+                            style="margin-top: 1.5rem; background-color: #fffff0; border: 1px solid #fefcbf;">
+                            <p style="margin-bottom: 0.5rem;"><strong data-i18n="lblActionSug"
+                                    style="color: #975a16;">Action Suggestion:</strong> <span id="sell-suggestion"
+                                    style="font-weight: bold;">--</span></p>
+                            <p><strong data-i18n="lblStorageAdvice" style="color: #975a16;">Storage Advice:</strong>
+                                <span id="storage-advice" style="color: #744210;">--</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaf Scan Module -->
+            <div class="feature-section" id="leaf-scan-section" style="margin-top: 2rem;">
+                <div class="dash-card">
+                    <h3 data-i18n="lsTitle">🍃 AI Leaf Disease Detection</h3>
+                    <p data-i18n="lsDesc">Upload a photo of a crop leaf to detect early signs of diseases.</p>
+
+                    <form class="analysis-form" id="leaf-scan-form">
+                        <div class="form-group"
+                            style="text-align: center; padding: 2rem; border: 2px dashed #cbd5e0; border-radius: 8px; background-color: #f8fafc;">
+                            <label for="leaf-image" style="cursor: pointer;">
+                                <div style="font-size: 3rem; color: var(--primary-color);">📸</div>
+                                <span style="display: block; margin-top: 1rem; color: var(--text-color);"
+                                    data-i18n="lsUploadPrompt">Click or
+                                    Drag & Drop to Upload Image</span>
+                            </label>
+                            <input type="file" id="leaf-image" accept="image/*" style="display: none;" required>
+                            <div id="image-preview" style="margin-top: 1rem; display: none;">
+                                <img src="" alt="Preview"
+                                    style="max-width: 100%; max-height: 200px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                <p id="file-name-display"
+                                    style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">
+                                </p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="action-btn" data-i18n="btnAnalyzeLeaf">Analyze
+                            Leaf</button>
+                    </form>
+
+                    <!-- Leaf Scan Results -->
+                    <div id="scan-result" class="prediction-box" style="display: none; margin-top: 1.5rem;">
+                        <h4 data-i18n="resDetection">Detection Results</h4>
+                        <div class="result-item" style="margin-bottom: 1rem;">
+                            <span class="label" data-i18n="lblCondition">Detected Condition:</span>
+                            <span class="value" id="disease-name" style="color: var(--primary-dark);">--</span>
+                        </div>
+
+                        <div style="background-color: #edf2f7; border-radius: 4px; padding: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                <span style="font-size: 0.85rem; color: var(--text-light);" data-i18n="lblConfidence">AI
+                                    Confidence</span>
+                                <span style="font-size: 0.85rem; font-weight: bold; color: var(--primary-color);"
+                                    id="confidence-pct">--%</span>
+                            </div>
+                            <div
+                                style="width: 100%; background-color: #cbd5e0; border-radius: 4px; height: 8px; overflow: hidden;">
+                                <div id="confidence-bar"
+                                    style="width: 0%; height: 100%; background-color: var(--primary-color); transition: width 0.5s ease-in-out;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chatbot Module -->
+                    <div class="feature-section" id="chatbot-section" style="margin-top: 2rem;">
+                        <div class="dash-card">
+                            <h3 data-i18n="chatTitle">💬 Kisan Saathi Assistant</h3>
+                            <p data-i18n="chatDesc">Ask questions about your crops, weather, or farming
+                                practices.
+                            </p>
+
+                            <div id="chat-scroller" class="chat-container">
+                                <div id="chat-messages" class="chat-content">
+                                    <!-- Messages injected dynamically -->
+                                </div>
+                            </div>
+
+                            <form id="chat-form" style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                <input type="text" id="chat-input" data-i18n="chatPlaceholder"
+                                    placeholder="Type your question here..." style="flex: 1;" required>
+                                <button type="submit" class="action-btn" style="width: auto; padding: 0.75rem 1.5rem;"
+                                    data-i18n="btnSend">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- Connect translation manager globally before initialization script -->
+    <script type="module">
+        import { i18n } from './js/i18n.js';
+        window.i18n = i18n;
+    </script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

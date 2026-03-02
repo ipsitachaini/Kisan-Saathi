@@ -1,0 +1,41 @@
+# Python ignore patterns
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Databases
+backend/sql_app.db
+backend/test.db
+*.sqlite3
+
+# OS related
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Local configuration
+backend/.env
+frontend/.env
+config.local.json
+
+# Project specific
+backend/uploads/
+backend/openapi_routes.json
