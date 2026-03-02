@@ -1,5 +1,7 @@
 // API configuration
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000/api/v1'
+    : 'https://kisan-saathi-backend.onrender.com/api/v1'; // This should be updated to your actual backend URL once deployed on Render/Fly.io.
 
 // Helper function to get the JWT token
 export function getToken() {
