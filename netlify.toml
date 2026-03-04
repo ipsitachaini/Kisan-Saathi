@@ -1,16 +1,15 @@
 [build]
   publish = "frontend"
-  command = ""
+  command = "ls -R"
 
 [functions]
   included_files = ["backend/**"]
-  # Setting directory for Netlify Python functions
-  directory = "netlify/functions"
+  directory = "functions"
 
 [[redirects]]
   # Route any /api calls to our serverless backend
   from = "/api/*"
-  to = "/.netlify/functions/api/api/:splat"
+  to = "/.netlify/functions/api/:splat"
   status = 200
 
 [[redirects]]
