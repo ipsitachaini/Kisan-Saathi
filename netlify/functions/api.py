@@ -3,7 +3,9 @@ import os
 
 # Add backend directory to sys.path so we can import app and other modules
 # Netlify root is the repository root.
-sys.path.append(os.path.join(os.getcwd(), 'backend'))
+# Get the absolute path of the repository root
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.join(base_dir, 'backend'))
 
 from main import app
 from mangum import Mangum

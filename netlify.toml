@@ -10,7 +10,7 @@
 [[redirects]]
   # Route any /api calls to our serverless backend
   from = "/api/*"
-  to = "/.netlify/functions/api"
+  to = "/.netlify/functions/api/api/:splat"
   status = 200
 
 [[redirects]]
