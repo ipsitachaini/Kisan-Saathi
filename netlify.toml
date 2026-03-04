@@ -2,15 +2,12 @@
   publish = "frontend"
   command = ""
 
-[functions]
-  included_files = ["backend/**"]
-  directory = "netlify/functions"
-
 [[redirects]]
-  # Route any /api calls to our serverless backend
-  from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
-  status = 200
+  # Route any /api calls to our Render backend (update the URL when generated)
+  # from = "/api/*"
+  # to = "https://your-render-url.onrender.com/api/:splat"
+  # status = 200
+  # force = true
 
 [[redirects]]
   # Ensure normal routing for our SPA
