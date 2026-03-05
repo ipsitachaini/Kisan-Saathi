@@ -1,9 +1,14 @@
 import sys
 import os
 
-# Add the project root to the path so we can import 'backend'
-path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if path not in sys.path:
-    sys.path.insert(0, path)
+# Root of the repo
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+# The backend folder where actual code lives
+backend = os.path.join(root, 'backend')
+
+if root not in sys.path:
+    sys.path.insert(0, root)
+if backend not in sys.path:
+    sys.path.insert(0, backend)
 
 from backend.main import app
