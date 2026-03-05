@@ -16,13 +16,13 @@ app = FastAPI(
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-# Create tables on startup
-@app.on_event("startup")
-def configure_db():
-    try:
-        Base.metadata.create_all(bind=engine)
-    except Exception as e:
-        print(f"Database creation error: {e}")
+# Create tables on startup (DISABLED FOR DEBUG)
+# @app.on_event("startup")
+# def configure_db():
+#     try:
+#         Base.metadata.create_all(bind=engine)
+#     except Exception as e:
+#         print(f"Database creation error: {e}")
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):

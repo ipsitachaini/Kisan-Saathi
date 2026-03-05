@@ -1,36 +1,30 @@
 import sys
 import os
 import traceback
-import json
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
-# Absolute path to the project root
+# Root of the repo
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if root not in sys.path:
     sys.path.insert(0, root)
 
 try:
-    # Try to import the app from backend.main
+    # Try to import the app
     from backend.main import app
 except Exception as e:
-    # If initialization fails, create a fail-safe app to report the error
-    from fastapi import FastAPI
-    from fastapi.responses import JSONResponse
-    
+    # If it fails, report the error properly
     app = FastAPI()
     
-    backend_path = os.path.join(root, 'backend')
-    
-    error_info = {
+    error_data = {
         "status": "error",
-        "message": "Backend initialization failed - DIAGNOSTICS ACTIVE",
-        "error": str(e),
+        "message": "Backend initialization failed - Critical Diagnostic",
+        "error_type": type(e).__name__,
+        "error_msg": str(e),
         "traceback": traceback.format_exc(),
-        "root_exists": os.path.exists(root),
-        "backend_exists": os.path.exists(backend_path),
-        "root_contents": os.listdir(root) if os.path.exists(root) else [],
         "sys_path": sys.path
     }
     
     @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE"])
-    async def fallback_handler(path: str = ""):
-        return JSONResponse(status_code=200, content=error_info)
+    async def fallback(path: str = ""):
+        return JSONResponse(status_code=200, content=error_data)
