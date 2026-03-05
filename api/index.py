@@ -18,7 +18,8 @@ except Exception as e:
     
     error_data = {
         "status": "error",
-        "message": "Backend initialization failed - Critical Diagnostic",
+        "message": "Backend initialization failed - Critical Diagnostic V2",
+        "cache_breaker_id": "1802_SYNC_CHECK",
         "error_type": type(e).__name__,
         "error_msg": str(e),
         "traceback": traceback.format_exc(),
