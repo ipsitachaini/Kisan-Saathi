@@ -16,13 +16,7 @@ app = FastAPI(
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-# Create tables on startup
-@app.on_event("startup")
-def configure_db():
-    try:
-        Base.metadata.create_all(bind=engine)
-    except Exception as e:
-        print(f"Database creation error: {e}")
+# Database and Static serving setup is now handled in the merged startup event below.
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
@@ -75,23 +69,32 @@ app.include_router(market.router, prefix=f"{settings.API_V1_STR}/market-price", 
 from fastapi.staticfiles import StaticFiles
 import os
 
-# Static serving (Adjust for Vercel /tmp)
-static_dir = "/tmp/uploads" if os.name != 'nt' else "uploads"
-if not os.path.exists(static_dir):
+@app.on_event("startup")
+def setup_app():
+    # 1. Create database tables
     try:
-        os.makedirs(static_dir, exist_ok=True)
-    except:
-        pass
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        print(f"Database setup error: {e}")
 
-if os.path.exists(static_dir):
-    app.mount("/static", StaticFiles(directory=static_dir), name="static")
-else:
-    # Fallback to local uploads if /tmp failed or we're building
+    # 2. Setup static file directory and mounting
     try:
-        os.makedirs("uploads", exist_ok=True)
-        app.mount("/static", StaticFiles(directory="uploads"), name="static")
-    except:
-        pass # Ignore if read-only
+        # In Vercel/serverless, only /tmp is writable
+        static_dir = "/tmp/uploads" if os.name != "nt" else "uploads"
+        if not os.path.exists(static_dir):
+            os.makedirs(static_dir, exist_ok=True)
+        
+        if os.path.exists(static_dir):
+            app.mount("/static", StaticFiles(directory=static_dir), name="static")
+        else:
+            # Final fallback (usually read-only)
+            try:
+                os.makedirs("uploads", exist_ok=True)
+                app.mount("/static", StaticFiles(directory="uploads"), name="static")
+            except:
+                pass
+    except Exception as e:
+        print(f"Static Serving Warning: {e}")
 
 # Mount frontend directory
 try:
