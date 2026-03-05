@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from schemas.disease_advisory import DiseaseAdvisoryRequest, DiseaseAdvisoryResponse, DiseaseData
-from db.models import DiseaseReport
-from core.disease_config import DISEASE_DB, SYMPTOM_DISEASE_MAP
-from core.translation import translate
+from backend.schemas.disease_advisory import DiseaseAdvisoryRequest, DiseaseAdvisoryResponse, DiseaseData
+from backend.db.models import DiseaseReport
+from backend.core.disease_config import DISEASE_DB, SYMPTOM_DISEASE_MAP
+from backend.core.translation import translate
 
 def get_disease_advisory(db: Session, user_id: int, req: DiseaseAdvisoryRequest, lang: str = "en") -> DiseaseAdvisoryResponse:
     determined_disease_id = "unknown"

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from fastapi import UploadFile, HTTPException
-from db.models import User, LeafScanRecord
+from backend.db.models import User, LeafScanRecord
 import shutil
 import uuid
 import os

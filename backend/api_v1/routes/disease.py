@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from db.database import get_db
-from schemas.disease_advisory import DiseaseAdvisoryRequest, DiseaseAdvisoryResponse
-from services.disease_service import get_disease_advisory
-from api_v1.dependencies import get_current_user
-from db.models import User
+from backend.db.database import get_db
+from backend.schemas.disease_advisory import DiseaseAdvisoryRequest, DiseaseAdvisoryResponse
+from backend.services.disease_service import get_disease_advisory
+from backend.api_v1.dependencies import get_current_user
+from backend.db.models import User
 
 router = APIRouter()
 

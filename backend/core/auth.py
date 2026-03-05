@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from typing import Any, Union
 from jose import jwt
-from core.config import settings
+from backend.core.config import settings
 
 def create_access_token(
     subject: Union[str, Any], expires_delta: timedelta = None

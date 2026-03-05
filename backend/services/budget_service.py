@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from schemas.budget import BudgetCalculateRequest, BudgetCalculateResponse
-from db.models import BudgetRecord
-from core.budget_config import CROP_BUDGET_RATES
-from core.translation import translate
+from backend.schemas.budget import BudgetCalculateRequest, BudgetCalculateResponse
+from backend.db.models import BudgetRecord
+from backend.core.budget_config import CROP_BUDGET_RATES
+from backend.core.translation import translate
 
 def calculate_budget(db: Session, user_id: int, req: BudgetCalculateRequest, lang: str = "en") -> BudgetCalculateResponse:
     crop_keys = CROP_BUDGET_RATES.get(req.crop.lower())

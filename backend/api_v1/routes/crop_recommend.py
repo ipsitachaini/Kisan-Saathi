@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from db.database import get_db
-from schemas.crop_recommend import CropRecommendationRequest, CropRecommendationResponse
-from services.crop_recommend_service import recommend_crops
-from api_v1.dependencies import get_current_user
-from db.models import User
+from backend.db.database import get_db
+from backend.schemas.crop_recommend import CropRecommendationRequest, CropRecommendationResponse
+from backend.services.crop_recommend_service import recommend_crops
+from backend.api_v1.dependencies import get_current_user
+from backend.db.models import User
 
 router = APIRouter()
 

@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from schemas.post_harvest import PostHarvestInput, PostHarvestResponse, PostHarvestData
-from db.models import User, PostHarvestRecord
-from core.post_harvest_config import POST_HARVEST_DB
-from core.translation import translate
+from backend.schemas.post_harvest import PostHarvestInput, PostHarvestResponse, PostHarvestData
+from backend.db.models import User, PostHarvestRecord
+from backend.core.post_harvest_config import POST_HARVEST_DB
+from backend.core.translation import translate
 
 def predict_post_harvest_risk(db: Session, user: User, input_data: PostHarvestInput, lang: str = "en") -> PostHarvestResponse:
     crop = input_data.crop_type.lower()

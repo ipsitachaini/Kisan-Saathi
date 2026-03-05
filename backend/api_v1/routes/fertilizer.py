@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from db.database import get_db
-from schemas.fertilizer import FertilizerRecommendRequest, FertilizerRecommendResponse
-from services.fertilizer_service import recommend_fertilizer
-from api_v1.dependencies import get_current_user
-from db.models import User
+from backend.db.database import get_db
+from backend.schemas.fertilizer import FertilizerRecommendRequest, FertilizerRecommendResponse
+from backend.services.fertilizer_service import recommend_fertilizer
+from backend.api_v1.dependencies import get_current_user
+from backend.db.models import User
 
 router = APIRouter()
 

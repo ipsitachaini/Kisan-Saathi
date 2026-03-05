@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/api/test",
-      "destination": "/api/test.py"
-    },
-    {
       "source": "/api/(.*)",
       "destination": "/api/index.py"
+    },
+    {
+      "source": "/verify_ipsita.txt",
+      "destination": "/frontend/verify_ipsita.txt"
     },
     {
       "source": "/(.*)",

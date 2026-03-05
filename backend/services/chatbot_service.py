@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from schemas.chatbot import ChatMessageRequest
-from db.models import User, ChatLog
+from backend.schemas.chatbot import ChatMessageRequest
+from backend.db.models import User, ChatLog
 
 # Hardcoded translations for mock responses
 BOT_RESPONSES = {

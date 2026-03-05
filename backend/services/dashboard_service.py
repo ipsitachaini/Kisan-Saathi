@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from schemas.dashboard import DashboardSummary, WeatherSummary, RecentActivity
-from db.models import User, PostHarvestRecord, LeafScanRecord
+from backend.schemas.dashboard import DashboardSummary, WeatherSummary, RecentActivity
+from backend.db.models import User, PostHarvestRecord, LeafScanRecord
 
 def get_dashboard_summary(db: Session, user: User) -> DashboardSummary:
     # 1. Fetch Mock Weather Data (to be replaced by external API in integration phase)

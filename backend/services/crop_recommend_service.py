@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from schemas.crop_recommend import CropRecommendationRequest, CropRecommendationResponse, CropRecommendationData, RecommendedCropItem
-from db.models import CropRecommendation
-from core.crop_recommend_config import CROP_DB
-from core.translation import translate
+from backend.schemas.crop_recommend import CropRecommendationRequest, CropRecommendationResponse, CropRecommendationData, RecommendedCropItem
+from backend.db.models import CropRecommendation
+from backend.core.crop_recommend_config import CROP_DB
+from backend.core.translation import translate
 
 def recommend_crops(db: Session, user_id: int, req: CropRecommendationRequest, lang: str = "en") -> CropRecommendationResponse:
     # simple filtering algorithm

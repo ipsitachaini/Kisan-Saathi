@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from db.database import get_db
-from db.models import User
-from schemas.user import UserResponse
-from api_v1.dependencies import get_current_user
+from backend.db.database import get_db
+from backend.db.models import User
+from backend.schemas.user import UserResponse
+from backend.api_v1.dependencies import get_current_user
 from pydantic import BaseModel
 
 class LanguageUpdate(BaseModel):

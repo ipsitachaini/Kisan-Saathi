@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, UploadFile, File
 from sqlalchemy.orm import Session
 
-from api_v1.dependencies import get_current_user
-from db.database import get_db
-from db.models import User
-from schemas.leaf_scan import LeafScanResponse
-from services import leaf_scan_service
+from backend.api_v1.dependencies import get_current_user
+from backend.db.database import get_db
+from backend.db.models import User
+from backend.schemas.leaf_scan import LeafScanResponse
+from backend.services import leaf_scan_service
 
 router = APIRouter()
 

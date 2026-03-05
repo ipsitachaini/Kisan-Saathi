@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from api_v1.dependencies import get_current_user
-from db.database import get_db
-from db.models import User
-from schemas.chatbot import ChatMessageRequest, ChatMessageResponse
-from services import chatbot_service
+from backend.api_v1.dependencies import get_current_user
+from backend.db.database import get_db
+from backend.db.models import User
+from backend.schemas.chatbot import ChatMessageRequest, ChatMessageResponse
+from backend.services import chatbot_service
 
 router = APIRouter()
 

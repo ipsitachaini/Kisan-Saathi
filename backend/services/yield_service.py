@@ -1,14 +1,14 @@
 from sqlalchemy.orm import Session
-from schemas.yield_predict import YieldPredictRequest, YieldPredictResponse
-from db.models import YieldPrediction
-from core.yield_config import (
+from backend.schemas.yield_predict import YieldPredictRequest, YieldPredictResponse
+from backend.db.models import YieldPrediction
+from backend.core.yield_config import (
     BASE_YIELD_PER_ACRE,
     BASE_PRICE_PER_QUINTAL,
     SOIL_QUALITY_MULTIPLIER,
     IRRIGATION_MULTIPLIER,
     RAINFALL_MULTIPLIER
 )
-from core.translation import translate
+from backend.core.translation import translate
 
 def predict_yield(db: Session, user_id: int, req: YieldPredictRequest, lang: str = "en") -> YieldPredictResponse:
     crop = req.crop_name.lower()

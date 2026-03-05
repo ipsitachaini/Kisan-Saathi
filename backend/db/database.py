@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.pool import NullPool
-from core.config import settings
+from backend.core.config import settings
 
 # Serverless connection settings
 connect_args = {}

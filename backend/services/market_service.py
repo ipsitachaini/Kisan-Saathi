@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from schemas.market_price import MarketPriceRequest, MarketPriceResponse, MarketPriceData
-from db.models import MarketLog
-from core.market_config import MARKET_PRICES_DB
-from core.translation import translate
+from backend.schemas.market_price import MarketPriceRequest, MarketPriceResponse, MarketPriceData
+from backend.db.models import MarketLog
+from backend.core.market_config import MARKET_PRICES_DB
+from backend.core.translation import translate
 
 def get_market_prices(db: Session, user_id: int, req: MarketPriceRequest, lang: str = "en") -> MarketPriceResponse:
     crop_prices = MARKET_PRICES_DB.get(req.crop_name.lower(), MARKET_PRICES_DB["wheat"])

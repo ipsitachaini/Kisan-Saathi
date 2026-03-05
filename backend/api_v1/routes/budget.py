@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from db.database import get_db
-from schemas.budget import BudgetCalculateRequest, BudgetCalculateResponse
-from services.budget_service import calculate_budget
-from api_v1.dependencies import get_current_user
-from db.models import User
+from backend.db.database import get_db
+from backend.schemas.budget import BudgetCalculateRequest, BudgetCalculateResponse
+from backend.services.budget_service import calculate_budget
+from backend.api_v1.dependencies import get_current_user
+from backend.db.models import User
 
 router = APIRouter()
 

@@ -1,12 +1,12 @@
 from sqlalchemy.orm import Session
-from schemas.fertilizer import FertilizerRecommendRequest, FertilizerRecommendResponse, FertilizerData
-from db.models import FertilizerReport
-from core.fertilizer_config import (
+from backend.schemas.fertilizer import FertilizerRecommendRequest, FertilizerRecommendResponse, FertilizerData
+from backend.db.models import FertilizerReport
+from backend.core.fertilizer_config import (
     SYMPTOM_DEFICIENCY_MAP,
     DEFICIENCY_RECOMMENDATION,
     NPK_THRESHOLDS
 )
-from core.translation import translate
+from backend.core.translation import translate
 
 def recommend_fertilizer(db: Session, user_id: int, req: FertilizerRecommendRequest, lang: str = "en") -> FertilizerRecommendResponse:
     deficiency = "Balanced"
