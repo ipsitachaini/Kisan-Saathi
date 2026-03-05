@@ -1,10 +1,10 @@
-# Configured market prices per quintal in different simulated regions
+# Configured market prices per quintal
 MARKET_PRICES_DB = {
     "rice": {
-        "local_mandi": 2200.0,
-        "district_market": 2354.0,
-        "state_market": 2508.0,
-        "demand_trend": "steady",
+        "local_mandi": 2000.0,
+        "district_market": 2140.0,
+        "state_market": 2280.0,
+        "demand_trend": "high",
         "advice_key": "mktAdvRice"
     },
     "wheat": {
@@ -73,210 +73,210 @@ MARKET_PRICES_DB = {
     "arhar": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvArhar"
     },
     "moong": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvMoong"
     },
     "urad": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvUrad"
     },
     "masoor": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvMasoor"
     },
     "chana": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvChana"
     },
     "rajma": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvRajma"
     },
     "horse_gram": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvHorsegram"
     },
     "lobia": {
         "local_mandi": 6000.0,
         "district_market": 6420.0,
-        "state_market": 6839.999999999999,
+        "state_market": 6840.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvLobia"
     },
     "mustard": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvMustard"
     },
     "groundnut": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvGroundnut"
     },
     "soybean": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvSoybean"
     },
     "sunflower": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvSunflower"
     },
     "sesame": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvSesame"
     },
     "castor": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCastor"
     },
     "linseed": {
         "local_mandi": 5000.0,
         "district_market": 5350.0,
-        "state_market": 5699.999999999999,
+        "state_market": 5700.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvLinseed"
     },
     "potato": {
-        "local_mandi": 1500.0,
-        "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "local_mandi": 1200.0,
+        "district_market": 1284.0,
+        "state_market": 1368.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvPotato"
     },
     "tomato": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
-        "demand_trend": "steady",
+        "state_market": 1710.0,
+        "demand_trend": "high",
         "advice_key": "mktAdvTomato"
     },
     "onion": {
-        "local_mandi": 1500.0,
-        "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
-        "demand_trend": "steady",
+        "local_mandi": 1800.0,
+        "district_market": 1926.0,
+        "state_market": 2052.0,
+        "demand_trend": "high",
         "advice_key": "mktAdvOnion"
     },
     "brinjal": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvBrinjal"
     },
     "cabbage": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCabbage"
     },
     "cauliflower": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCauliflower"
     },
     "okra": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvOkra"
     },
     "chilli": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvChilli"
     },
     "capsicum": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCapsicum"
     },
     "pumpkin": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvPumpkin"
     },
     "bottle_gourd": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvBottlegourd"
     },
     "bitter_gourd": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvBittergourd"
     },
     "ridge_gourd": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvRidgegourd"
     },
     "spinach": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvSpinach"
     },
     "carrot": {
         "local_mandi": 1500.0,
         "district_market": 1605.0,
-        "state_market": 1709.9999999999998,
+        "state_market": 1710.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCarrot"
     },
@@ -346,79 +346,43 @@ MARKET_PRICES_DB = {
     "sugarcane": {
         "local_mandi": 7000.0,
         "district_market": 7490.0,
-        "state_market": 7979.999999999999,
+        "state_market": 7980.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvSugarcane"
     },
     "turmeric": {
         "local_mandi": 7000.0,
         "district_market": 7490.0,
-        "state_market": 7979.999999999999,
+        "state_market": 7980.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvTurmeric"
     },
     "cotton": {
         "local_mandi": 7000.0,
         "district_market": 7490.0,
-        "state_market": 7979.999999999999,
+        "state_market": 7980.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCotton"
     },
     "jute": {
         "local_mandi": 7000.0,
         "district_market": 7490.0,
-        "state_market": 7979.999999999999,
+        "state_market": 7980.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvJute"
     },
     "tea": {
         "local_mandi": 7000.0,
         "district_market": 7490.0,
-        "state_market": 7979.999999999999,
+        "state_market": 7980.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvTea"
     },
     "coffee": {
         "local_mandi": 7000.0,
         "district_market": 7490.0,
-        "state_market": 7979.999999999999,
+        "state_market": 7980.0,
         "demand_trend": "steady",
         "advice_key": "mktAdvCoffee"
-    },
-},
-    "rice": {
-        "local_mandi": 2000.0,
-        "district_market": 2150.0,
-        "state_market": 2300.0,
-        "demand_trend": "high",
-        "advice_key": "mktAdvRice"
-    },
-    "tomato": {
-        "local_mandi": 1500.0, # highly variable, using stable avg
-        "district_market": 1800.0,
-        "state_market": 2200.0,
-        "demand_trend": "high",
-        "advice_key": "mktAdvTomato"
-    },
-    "potato": {
-        "local_mandi": 1200.0,
-        "district_market": 1400.0,
-        "state_market": 1600.0,
-        "demand_trend": "steady",
-        "advice_key": "mktAdvPotato"
-    },
-    "onion": {
-        "local_mandi": 1800.0,
-        "district_market": 2100.0,
-        "state_market": 2600.0,
-        "demand_trend": "high",
-        "advice_key": "mktAdvOnion"
-    },
-    "millets": {
-        "local_mandi": 2500.0,
-        "district_market": 2800.0,
-        "state_market": 3100.0,
-        "demand_trend": "high",
-        "advice_key": "mktAdvMillets"
     }
 }
