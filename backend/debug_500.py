@@ -1,7 +1,8 @@
 import sys, subprocess, requests, time
 
-cwd = r"c:\Users\ipsit\OneDrive\Documents\New folder\smart-agri-platform\backend"
-p = subprocess.Popen([sys.executable, "-m", "uvicorn", "main:app", "--port", "8001"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, cwd=cwd)
+cwd = r"c:\Users\ipsit\OneDrive\Documents\New folder\smart-agri-platform"
+p = subprocess.Popen([sys.executable, "-m", "uvicorn", "backend.main:app", "--port", "8001"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, cwd=cwd)
+
 time.sleep(4)
 
 try:
