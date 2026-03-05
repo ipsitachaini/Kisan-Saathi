@@ -70,13 +70,20 @@ app.include_router(market.router, prefix=f"{settings.API_V1_STR}/market-price", 
 from fastapi.staticfiles import StaticFiles
 import os
 
-os.makedirs("uploads", exist_ok=True)
-app.mount("/static", StaticFiles(directory="uploads"), name="static")
+try:
+    os.makedirs("uploads", exist_ok=True)
+    app.mount("/static", StaticFiles(directory="uploads"), name="static")
+except OSError:
+    pass # Read-only file system on Vercel serverless
 
 # Mount frontend directory
-frontend_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend") if '__file__' in locals() else os.path.join(os.getcwd(), "..", "frontend")
-if os.path.exists(frontend_dir):
-    app.mount("/app", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+try:
+    frontend_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend") if '__file__' in locals() else os.path.join(os.getcwd(), "..", "frontend")
+    if os.path.exists(frontend_dir):
+        app.mount("/app", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+except Exception:
+    pass
+
 
 @app.get("/")
 def read_root():
