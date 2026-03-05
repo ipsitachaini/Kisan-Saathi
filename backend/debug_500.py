@@ -1,7 +1,10 @@
 import sys, subprocess, requests, time
 
-cwd = r"c:\Users\ipsit\OneDrive\Documents\New folder\smart-agri-platform"
+import os
+# Get the repository root (one level up from the backend directory where this script resides)
+cwd = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 p = subprocess.Popen([sys.executable, "-m", "uvicorn", "backend.main:app", "--port", "8001"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, cwd=cwd)
+
 
 time.sleep(4)
 
