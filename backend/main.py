@@ -7,8 +7,10 @@ from db.database import engine, Base
 import db.models
 from api.routes import auth, users, dashboard, post_harvest, leaf_scan, chatbot, budget, yield_predict, fertilizer, disease, crop_recommend, market
 
-# Create tables for now, later we'll use Alembic for migrations
-Base.metadata.create_all(bind=engine)
+# Create tables on startup
+@app.on_event("startup")
+def configure_db():
+    Base.metadata.create_all(bind=engine)
 
 from fastapi.middleware.cors import CORSMiddleware
 
