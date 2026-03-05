@@ -111,4 +111,5 @@ except Exception:
 @app.get("/api/v1")
 @app.get("/api/v1/")
 async def root():
-    return {"message": "Kisan Saathi API - SYNC CHECK 1827", "status": "all_routes_active"}
+    return {"message": "Kisan Saathi API - SYNC CHECK 2045 FINAL", "status": "all_routes_active"}
+
