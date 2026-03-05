@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from schemas.market_price import MarketPriceRequest, MarketPriceResponse
 from services.market_service import get_market_prices
-from api.dependencies import get_current_user
+from api_v1.dependencies import get_current_user
 from db.models import User
 
 from fastapi.responses import JSONResponse

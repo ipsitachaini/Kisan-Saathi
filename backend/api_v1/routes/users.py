@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from db.models import User
 from schemas.user import UserResponse
-from api.dependencies import get_current_user
+from api_v1.dependencies import get_current_user
 from pydantic import BaseModel
 
 class LanguageUpdate(BaseModel):

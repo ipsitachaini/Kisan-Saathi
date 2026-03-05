@@ -5,7 +5,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from core.config import settings
 from db.database import engine, Base
 import db.models
-from api.routes import auth, users, dashboard, post_harvest, leaf_scan, chatbot, budget, yield_predict, fertilizer, disease, crop_recommend, market
+from api_v1.routes import auth, users, dashboard, post_harvest, leaf_scan, chatbot, budget, yield_predict, fertilizer, disease, crop_recommend, market
 
 from fastapi.middleware.cors import CORSMiddleware
 

@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from schemas.yield_predict import YieldPredictRequest, YieldPredictResponse
 from services.yield_service import predict_yield
-from api.dependencies import get_current_user
+from api_v1.dependencies import get_current_user
 from db.models import User
 
 router = APIRouter()

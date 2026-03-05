@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from api.dependencies import get_current_user
+from api_v1.dependencies import get_current_user
 from db.database import get_db
 from db.models import User
 from schemas.post_harvest import PostHarvestInput, PostHarvestResponse
