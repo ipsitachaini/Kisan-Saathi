@@ -92,4 +92,4 @@ except Exception:
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to Kisan Saathi API - Smart Farming & Post-Harvest Assistant"}
+    return {"message": "Kisan Saathi API - SYNC CHECK 1007"}
