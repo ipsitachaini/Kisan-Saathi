@@ -3,6 +3,7 @@ import os
 import traceback
 import json
 
+# Absolute path to root to ensure backend can be imported
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 try:
@@ -11,8 +12,8 @@ except Exception as e:
     err_str = str(e)
     tb_str = traceback.format_exc()
     
-    # A raw ASGI application that doesn't rely on FastAPI, 
-    # ensuring we get the error as JSON even if zero libraries are installed!
+    # Raw ASGI app catching import errors, returning an intentionally 200 OK
+    # to bypass Vercel's 500 "An API error occurred" filter and show the raw error.
     async def app(scope, receive, send):
         if scope['type'] != 'http':
             return
@@ -26,7 +27,7 @@ except Exception as e:
         
         await send({
             'type': 'http.response.start',
-            'status': 500,
+            'status': 200,  # 200 forces Vercel to pass the payload through unaltered!
             'headers': [
                 (b'content-type', b'application/json'),
                 (b'content-length', str(len(body)).encode("utf-8")),
