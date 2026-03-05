@@ -6,9 +6,13 @@ import uuid
 import os
 import random
 
-UPLOAD_DIR = "uploads"
-if not os.path.exists(UPLOAD_DIR):
-    os.makedirs(UPLOAD_DIR)
+# In Vercel/serverless, only /tmp is writable
+UPLOAD_DIR = "/tmp/uploads" if os.name != 'nt' else "uploads"
+try:
+    if not os.path.exists(UPLOAD_DIR):
+        os.makedirs(UPLOAD_DIR, exist_ok=True)
+except Exception as e:
+    print(f"Warning: Could not create upload directory: {e}")
 
 def process_leaf_scan(db: Session, user: User, file: UploadFile) -> LeafScanRecord:
     # 1. Validate file
