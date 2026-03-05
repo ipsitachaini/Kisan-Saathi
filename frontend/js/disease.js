@@ -17,7 +17,10 @@ export async function submitDiseaseAdvisory(event) {
             return;
         }
 
-        const payload = { symptoms };
+        const payload = {
+            crop_type: document.getElementById('disease-crop').value,
+            symptoms
+        };
 
         const data = await apiFetch('/disease-advisory', {
             method: 'POST',

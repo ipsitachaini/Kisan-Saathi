@@ -256,7 +256,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function parseCategoryName(cat) {
-        return cat.charAt(0).toUpperCase() + cat.slice(1);
+        // Use translation for category if available
+        const key = `cat_${cat}`;
+        return window.i18n.translate(key) === key ? (cat.charAt(0).toUpperCase() + cat.slice(1)) : window.i18n.translate(key);
     }
 
     // Initialize translations and layout

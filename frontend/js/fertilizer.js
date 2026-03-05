@@ -13,6 +13,7 @@ export async function submitFertilizerRecommendation(event) {
         const landSize = parseFloat(document.getElementById('fert-land').value);
 
         let payload = {
+            crop_type: document.getElementById('fert-crop').value,
             input_type: mode,
             land_size: landSize
         };

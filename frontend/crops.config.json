@@ -4,384 +4,439 @@
         "category": "cereals",
         "default_yield_per_acre": 22,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Rice"
     },
     {
         "id": "wheat",
         "category": "cereals",
         "default_yield_per_acre": 18,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Wheat"
     },
     {
         "id": "maize",
         "category": "cereals",
         "default_yield_per_acre": 25,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Maize"
     },
     {
         "id": "bajra",
         "category": "cereals",
         "default_yield_per_acre": 10,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Bajra"
     },
     {
         "id": "jowar",
         "category": "cereals",
         "default_yield_per_acre": 12,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Jowar"
     },
     {
         "id": "ragi",
         "category": "cereals",
         "default_yield_per_acre": 15,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Ragi"
     },
     {
         "id": "barley",
         "category": "cereals",
         "default_yield_per_acre": 16,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Barley"
     },
     {
         "id": "foxtail_millet",
         "category": "cereals",
         "default_yield_per_acre": 8,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Foxtail Millet"
     },
     {
         "id": "little_millet",
         "category": "cereals",
         "default_yield_per_acre": 7,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Little Millet"
     },
     {
         "id": "kodo_millet",
         "category": "cereals",
         "default_yield_per_acre": 9,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Kodo Millet"
     },
     {
         "id": "arhar",
         "category": "pulses",
         "default_yield_per_acre": 6,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Arhar"
     },
     {
         "id": "moong",
         "category": "pulses",
         "default_yield_per_acre": 5,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Moong"
     },
     {
         "id": "urad",
         "category": "pulses",
         "default_yield_per_acre": 5,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Urad"
     },
     {
         "id": "masoor",
         "category": "pulses",
         "default_yield_per_acre": 6,
         "season": "rabi",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Masoor"
     },
     {
         "id": "chana",
         "category": "pulses",
         "default_yield_per_acre": 8,
         "season": "rabi",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Chana"
     },
     {
         "id": "rajma",
         "category": "pulses",
         "default_yield_per_acre": 7,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Rajma"
     },
     {
         "id": "horse_gram",
         "category": "pulses",
         "default_yield_per_acre": 4,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Horse Gram"
     },
     {
         "id": "lobia",
         "category": "pulses",
         "default_yield_per_acre": 5,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Lobia"
     },
     {
         "id": "mustard",
         "category": "oilseeds",
         "default_yield_per_acre": 8,
         "season": "rabi",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Mustard"
     },
     {
         "id": "groundnut",
         "category": "oilseeds",
         "default_yield_per_acre": 10,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Groundnut"
     },
     {
         "id": "soybean",
         "category": "oilseeds",
         "default_yield_per_acre": 12,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Soybean"
     },
     {
         "id": "sunflower",
         "category": "oilseeds",
         "default_yield_per_acre": 9,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Sunflower"
     },
     {
         "id": "sesame",
         "category": "oilseeds",
         "default_yield_per_acre": 4,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Sesame"
     },
     {
         "id": "castor",
         "category": "oilseeds",
         "default_yield_per_acre": 15,
         "season": "kharif",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Castor"
     },
     {
         "id": "linseed",
         "category": "oilseeds",
         "default_yield_per_acre": 5,
         "season": "rabi",
-        "water_requirement": "low"
+        "water_requirement": "low",
+        "name": "Linseed"
     },
     {
         "id": "potato",
         "category": "vegetables",
         "default_yield_per_acre": 80,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Potato"
     },
     {
         "id": "tomato",
         "category": "vegetables",
         "default_yield_per_acre": 100,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Tomato"
     },
     {
         "id": "onion",
         "category": "vegetables",
         "default_yield_per_acre": 90,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Onion"
     },
     {
         "id": "brinjal",
         "category": "vegetables",
         "default_yield_per_acre": 85,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Brinjal"
     },
     {
         "id": "cabbage",
         "category": "vegetables",
         "default_yield_per_acre": 110,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Cabbage"
     },
     {
         "id": "cauliflower",
         "category": "vegetables",
         "default_yield_per_acre": 95,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Cauliflower"
     },
     {
         "id": "okra",
         "category": "vegetables",
         "default_yield_per_acre": 40,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Okra"
     },
     {
         "id": "chilli",
         "category": "vegetables",
         "default_yield_per_acre": 25,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Chilli"
     },
     {
         "id": "capsicum",
         "category": "vegetables",
         "default_yield_per_acre": 50,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Capsicum"
     },
     {
         "id": "pumpkin",
         "category": "vegetables",
         "default_yield_per_acre": 120,
         "season": "zaid",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Pumpkin"
     },
     {
         "id": "bottle_gourd",
         "category": "vegetables",
         "default_yield_per_acre": 100,
         "season": "zaid",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Bottle Gourd"
     },
     {
         "id": "bitter_gourd",
         "category": "vegetables",
         "default_yield_per_acre": 60,
         "season": "zaid",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Bitter Gourd"
     },
     {
         "id": "ridge_gourd",
         "category": "vegetables",
         "default_yield_per_acre": 70,
         "season": "zaid",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Ridge Gourd"
     },
     {
         "id": "spinach",
         "category": "vegetables",
         "default_yield_per_acre": 30,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Spinach"
     },
     {
         "id": "carrot",
         "category": "vegetables",
         "default_yield_per_acre": 75,
         "season": "rabi",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Carrot"
     },
     {
         "id": "mango",
         "category": "fruits",
         "default_yield_per_acre": 40,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Mango"
     },
     {
         "id": "banana",
         "category": "fruits",
         "default_yield_per_acre": 150,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Banana"
     },
     {
         "id": "papaya",
         "category": "fruits",
         "default_yield_per_acre": 120,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Papaya"
     },
     {
         "id": "guava",
         "category": "fruits",
         "default_yield_per_acre": 60,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Guava"
     },
     {
         "id": "apple",
         "category": "fruits",
         "default_yield_per_acre": 80,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Apple"
     },
     {
         "id": "pomegranate",
         "category": "fruits",
         "default_yield_per_acre": 50,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Pomegranate"
     },
     {
         "id": "watermelon",
         "category": "fruits",
         "default_yield_per_acre": 150,
         "season": "zaid",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Watermelon"
     },
     {
         "id": "muskmelon",
         "category": "fruits",
         "default_yield_per_acre": 100,
         "season": "zaid",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Muskmelon"
     },
     {
         "id": "litchi",
         "category": "fruits",
         "default_yield_per_acre": 45,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Litchi"
     },
     {
         "id": "sugarcane",
         "category": "commercial",
         "default_yield_per_acre": 300,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Sugarcane"
     },
     {
         "id": "turmeric",
         "category": "commercial",
         "default_yield_per_acre": 80,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Turmeric"
     },
     {
         "id": "cotton",
         "category": "commercial",
         "default_yield_per_acre": 12,
         "season": "kharif",
-        "water_requirement": "medium"
+        "water_requirement": "medium",
+        "name": "Cotton"
     },
     {
         "id": "jute",
         "category": "commercial",
         "default_yield_per_acre": 85,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Jute"
     },
     {
         "id": "tea",
         "category": "commercial",
         "default_yield_per_acre": 55,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Tea"
     },
     {
         "id": "coffee",
         "category": "commercial",
         "default_yield_per_acre": 35,
         "season": "kharif",
-        "water_requirement": "high"
+        "water_requirement": "high",
+        "name": "Coffee"
     }
 ]
