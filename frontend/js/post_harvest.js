@@ -1,4 +1,4 @@
-import { getApiHeaders } from './api.js';
+import { getApiHeaders, apiFetch } from './api.js';
 
 export async function submitPostHarvestAnalysis(event) {
     event.preventDefault();
@@ -18,23 +18,11 @@ export async function submitPostHarvestAnalysis(event) {
             location: "Kisan Farm"
         };
 
-        const response = await fetch('http://localhost:8000/api/v1/post-harvest', {
+        const prediction = await apiFetch('/post-harvest', {
             method: 'POST',
-            headers: getApiHeaders(),
             body: JSON.stringify(payload)
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const prediction = await response.json();
-
-        if (!response.ok) {
-            let errorMsg = `HTTP error! status: ${response.status}`;
-            if (prediction.detail) errorMsg = typeof prediction.detail === 'string' ? prediction.detail : JSON.stringify(prediction.detail);
-            throw new Error(prediction.message || errorMsg);
-        }
         if (prediction.status !== "success") {
             throw new Error(prediction.message || "Unknown error");
         }

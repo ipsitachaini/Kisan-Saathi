@@ -1,4 +1,4 @@
-import { getApiHeaders } from './api.js';
+import { getApiHeaders, apiFetch } from './api.js';
 
 export async function submitCropRecommendation(event) {
     event.preventDefault();
@@ -16,34 +16,10 @@ export async function submitCropRecommendation(event) {
             water_availability: document.getElementById('cr-water').value
         };
 
-        const response = await fetch('http://localhost:8000/api/v1/crop-recommendation', {
+        const data = await apiFetch('/crop-recommendation', {
             method: 'POST',
-            headers: getApiHeaders(),
             body: JSON.stringify(payload)
         });
-
-        console.log("Response Status:", response.status);
-
-        let bodyText = await response.text();
-        console.log("Raw Response Body:", bodyText);
-
-        if (!bodyText) {
-            console.log("Response is completely empty!");
-            throw new Error(`Empty response from backend. Status: ${response.status}`);
-        }
-
-        let data;
-        try {
-            data = JSON.parse(bodyText);
-        } catch (e) {
-            throw new Error(`Non-JSON response: ${bodyText.substring(0, 100)}`);
-        }
-
-        if (!response.ok) {
-            let errorMsg = data.error || data.message || `HTTP error ${response.status}`;
-            if (data.detail) errorMsg = typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail);
-            throw new Error(errorMsg);
-        }
 
         if (data.status !== "success") {
             throw new Error(data.error || data.message || "Unknown error parsing response");

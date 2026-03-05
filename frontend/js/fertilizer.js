@@ -1,4 +1,4 @@
-import { getApiHeaders } from './api.js';
+import { getApiHeaders, apiFetch } from './api.js';
 
 export async function submitFertilizerRecommendation(event) {
     event.preventDefault();
@@ -31,19 +31,10 @@ export async function submitFertilizerRecommendation(event) {
             }
         }
 
-        const response = await fetch('http://localhost:8000/api/v1/fertilizer-recommendation', {
+        const data = await apiFetch('/fertilizer-recommendation', {
             method: 'POST',
-            headers: getApiHeaders(),
             body: JSON.stringify(payload)
         });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            let errorMsg = `HTTP error! status: ${response.status}`;
-            if (data.detail) errorMsg = typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail);
-            throw new Error(data.message || errorMsg);
-        }
 
         if (data.status !== "success") {
             throw new Error(data.message || "Unknown error parsing response");
