@@ -106,5 +106,7 @@ except Exception:
 
 
 @app.get("/")
-def read_root():
+@app.get("/api")
+@app.get("/api/")
+async def root():
     return {"message": "Kisan Saathi API - SYNC CHECK 1007"}
