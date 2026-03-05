@@ -74,17 +74,20 @@ export async function apiFetch(endpoint, options = {}) {
 
         const data = await response.json();
 
-        if (!response.ok) {
+        if (!response.ok || (data && data.status === 'error')) {
             let errorMsg = 'An API error occurred';
             if (data.detail) {
                 if (Array.isArray(data.detail)) {
-                    // FastAPI validation error array parsing
                     errorMsg = data.detail.map(e => `${e.loc.join('.')}: ${e.msg}`).join('\n');
                 } else if (typeof data.detail === 'string') {
                     errorMsg = data.detail;
                 } else {
                     errorMsg = JSON.stringify(data.detail);
                 }
+            } else if (data.error) {
+                errorMsg = data.error + (data.message ? ": " + data.message : "");
+            } else if (data.message) {
+                errorMsg = data.message;
             }
             throw new Error(errorMsg);
         }

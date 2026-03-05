@@ -40,7 +40,7 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
 @app.exception_handler(Exception)
 async def general_exception_handler(request: Request, exc: Exception):
     return JSONResponse(
-        status_code=500,
+        status_code=200,  # FORCE 200 to bypass Vercel's strict 500 interception
         content={"status": "error", "error": str(exc)}
     )
 
