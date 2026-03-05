@@ -1,3 +1,15 @@
 {
-  "rewrites": []
+  "github": {
+    "silent": false
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/$1"
+    }
+  ]
 }
