@@ -1,10 +1,9 @@
-import sys
-import os
+from fastapi import FastAPI
+app = FastAPI()
+@app.get("/api/final-check")
+async def final_check():
+    return {"message": "FINAL_CHECK_SUCCESS"}
 
-# Absolute path to the project root
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
-
-# Import the actual FastAPI app
-from backend.main import app
+@app.get("/{path:path}")
+async def catch_all(path: str):
+    return {"message": "CATCH_ALL", "path": path}
