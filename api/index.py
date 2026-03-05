@@ -1,11 +1,27 @@
 import sys
 import os
+import traceback
+import json
 
-# Add the project root to the path so we can import 'backend'
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(project_root)
+# Absolute path to root
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if path not in sys.path:
+    sys.path.insert(0, path)
 
-from backend.main import app
-
-# Vercel looks for 'app' in index.py
-# If backend/main.py defines 'app', it's already imported.
+try:
+    from backend.main import app
+except Exception as e:
+    err_msg = str(e)
+    tb = traceback.format_exc()
+    
+    # Simple direct ASGI app to bypass Vercel 500
+    async def app(scope, receive, send):
+        if scope['type'] != 'http': return
+        body = json.dumps({
+            "status": "error", 
+            "message": "Backend initialization failed", 
+            "error": err_msg,
+            "traceback": tb
+        }).encode()
+        await send({'type': 'http.response.start', 'status': 200, 'headers': [(b'content-type', b'application/json')]})
+        await send({'type': 'http.response.body', 'body': body})
